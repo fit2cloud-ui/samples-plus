@@ -1,22 +1,21 @@
 <template>
   <aside :class="['sidebar-container', {'is-collapse': isCollapse}]">
     <slot>
-      <sidebar/>
+      <Sidebar />
     </slot>
   </aside>
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import Sidebar from "@/components/layout/sidebar/index.vue";
+import { computed } from "vue";
+import Sidebar from "./sidebar/index.vue";
 
-import useStore from '@/store';
+import useStore from "@/store";
 
 const { app } = useStore();
-const sidebar = computed(() => app.sidebar);
+const sidebarStore = computed(() => app.sidebar);
 
 const isCollapse = computed(() => {
-  return !sidebar.value.opened
+  return !sidebarStore.value.opened;
 });
-
 </script>
