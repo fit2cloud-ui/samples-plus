@@ -8,24 +8,24 @@
               <img src="../../assets/RackShift-black.png" alt="">
             </div>
             <div class="login-title">
-              <!-- {{ $t('login.title') }} -->
+              {{ $t('login.title') }}
             </div>
             <div class="login-border"></div>
             <div class="login-welcome">
-              <!-- {{ $t('login.welcome') }} -->
+              {{ $t('login.welcome') }}
             </div>
             <div class="login-form">
-              <!-- <el-form-item prop="username">
+              <el-form-item prop="username">
                 <el-input v-model="form.username" :placeholder="$t('login.username')" autofocus />
               </el-form-item>
               <el-form-item prop="password">
                 <el-input v-model="form.password" :placeholder="$t('login.password')" show-password maxlength="30"
                   show-word-limit autocomplete="new-password" />
-              </el-form-item> -->
+              </el-form-item>
             </div>
             <div class="login-btn">
               <el-button type="primary" class="submit" @click="submitForm(formRef)" size="default">
-                <!-- {{ $t('commons.button.login') }} -->
+                {{ $t('commons.button.login') }}
               </el-button>
             </div>
             <div class="login-msg">

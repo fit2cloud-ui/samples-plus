@@ -20,8 +20,8 @@
 <script setup>
 // import { computed } from 'vue';
 const  languageMap ={
-        "zh-CN": "中文(简体)",
-        "zh-TW": "中文(繁體)",
+        "zh-cn": "中文(简体)",
+        "zh-tw": "中文(繁體)",
         "en-US": "English",
       }
 

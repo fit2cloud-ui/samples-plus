@@ -20,21 +20,21 @@ const users = {
     name: 'Administrator',
     email: "admin@fit2cloud.com",
     roles: ['admin'],
-    language: "zh-CN"
+    language: "zh-cn"
   },
   'editor-token': {
     id: "editor",
     name: 'Editor',
     email: "editor@fit2cloud.com",
     roles: ['editor'],
-    language: "zh-CN"
+    language: "zh-cn"
   },
   'readonly-token': {
     id: "readonly",
     name: 'Readonly User',
     email: "readonly@fit2cloud.com",
     roles: ['readonly'],
-    language: "zh-CN"
+    language: "zh-cn"
   }
 }
 

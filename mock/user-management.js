@@ -5,19 +5,19 @@ const users = [
     name: 'Administrator',
     email: "admin@fit2cloud.com",
     roles: ['admin'],
-    language: "zh-CN"
+    language: "zh-cn"
   }, {
     id: "editor",
     name: 'Editor',
     email: "editor@fit2cloud.com",
     roles: ['editor'],
-    language: "zh-CN"
+    language: "zh-cn"
   }, {
     id: "readonly",
     name: 'Readonly User',
     email: "readonly@fit2cloud.com",
     roles: ['readonly'],
-    language: "zh-CN"
+    language: "zh-cn"
   }
 ]
 
@@ -26,7 +26,7 @@ for (let i = 0; i < 300; i++) {
   let name = id;
   let email = id + "@fit2cloud.com"
   let roles = ['readonly']
-  let language = "zh-CN"
+  let language = "zh-cn"
   let createTime = new Date().getTime()
   users.push({id, name, email, roles, language, createTime})
 }

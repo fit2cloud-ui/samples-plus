@@ -9,21 +9,21 @@ const users = {
     name: 'Administrator',
     email: "admin@fit2cloud.com",
     roles: ['admin', 'editor'],
-    language: "zh-CN"
+    language: "zh-cn"
   },
   editor: {
     id: "editor",
     name: 'Editor',
     email: "editor@fit2cloud.com",
     roles: ['editor', 'readonly'],
-    language: "zh-CN"
+    language: "zh-cn"
   },
   readonly: {
     id: "readonly",
     name: 'Readonly User',
     email: "readonly@fit2cloud.com",
     roles: ['readonly'],
-    language: "zh-CN"
+    language: "zh-cn"
   }
 }
 

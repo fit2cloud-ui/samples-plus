@@ -1,8 +1,9 @@
 import axios from 'axios'
 import {$alert, $error} from "./message"
-import store from '@/store'
-// import i18n from "@/i18n";
+import i18n from "@/locales";
 import {TokenKey, getToken} from '@/utils/token'
+
+import useStore from "@/store";
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API, // url = base url + request url
@@ -13,7 +14,8 @@ const instance = axios.create({
 // 每次请求加上Token。如果没用使用Token，删除这个拦截器
 instance.interceptors.request.use(
   config => {
-    if (store.getters.token) {
+    const { user } = useStore();
+    if (user.token) {
       config.headers[TokenKey] = getToken()
     }
     return config
@@ -27,9 +29,10 @@ instance.interceptors.request.use(
 const checkAuth = response => {
   // 请根据实际需求修改
   if (response.headers["authentication-status"] === "invalid" || response.status === 401) {
-    // let message = i18n.t('login.expires');
+    let message = i18n.t('login.expires');
     $alert(message, () => {
-      store.dispatch('user/logout').then(() => {
+      const { user } = useStore();
+      user.logout().then(() => {
         location.reload()
       })
     });
