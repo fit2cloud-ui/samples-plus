@@ -2,23 +2,23 @@
 import {get, post, put} from "@/utils/request"
 
 export function login(data) {
-  return post("/samples/user/login", data)
+  return post("/api/user/login", data)
 }
 
 export function logout() {
-  return post("/samples/user/logout")
+  return post("/api/user/logout")
 }
 
 export function isLogin() {
-  return get("/samples/user/is-login")
+  return get("/api/user/is-login")
 }
 
 export function getCurrentUser() {
-  return get("/samples/user/current")
+  return get("/api/user/current")
 }
 
 export function updateInfo(id, data) {
-  return put("/samples/user/info/update/" + id, data)
+  return put("/api/user/info/update/" + id, data)
 }
 
 

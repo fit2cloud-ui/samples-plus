@@ -6,15 +6,10 @@ class ResultHolder {
   }
 }
 
-const success = data => {
+export const success = data => {
   return new ResultHolder(true, data)
 }
 
-const error = message => {
+export const error = message => {
   return new ResultHolder(false, undefined, message)
-}
-
-module.exports = {
-  success,
-  error
 }

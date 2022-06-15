@@ -4,9 +4,7 @@ import "@/styles/index.scss"
 import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import router from "./router/index";
-import {
-  createPinia
-} from 'pinia';
+import { createPinia} from 'pinia';
 import i18n from '@/locales'
 
 

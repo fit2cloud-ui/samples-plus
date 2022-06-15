@@ -46,7 +46,7 @@ const usePermissionStore = defineStore({
         }
         this.setRoutes(accessedRoutes)
         resolve(accessedRoutes)
-      });
+      }).catch(()=>{});
     }
   }
 });

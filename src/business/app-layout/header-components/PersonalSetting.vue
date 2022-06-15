@@ -32,7 +32,7 @@
 
 //     },
 //     toHelp() {
-//       window.open("https://github.com/fit2cloud-ui/samples", "_blank");
+//       window.open("https://github.com/fit2cloud-ui/samples-plus", "_blank");
 //     },
 //     logout() {
 //       this.$store.dispatch("user/logout").then(() => {

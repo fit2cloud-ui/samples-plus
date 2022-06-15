@@ -38,7 +38,7 @@ const useUserTokenStore = defineStore({
         } else {
           reject(false)
         }
-      });
+      }).catch(() => {});
     },
   
     getCurrentUser() {

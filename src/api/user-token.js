@@ -2,19 +2,19 @@
 import {get, post, put} from "@/utils/request"
 
 export function login(data) {
-  return post("/samples/user-token/login", data)
+  return post("/api/user-token/login", data)
 }
 
 export function logout() {
-  return post("/samples/user-token/logout")
+  return post("/api/user-token/logout")
 }
 
 export function getCurrentUser() {
-  return get("/samples/user-token/current")
+  return get("/api/user-token/current")
 }
 
 export function updateInfo(data) {
-  return put("/samples/user-token/update", data)
+  return put("/api/user-token/update", data)
 }
 
 

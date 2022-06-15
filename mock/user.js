@@ -1,4 +1,4 @@
-const {success, error} = require("./result-holder")
+ import { success, error } from "./result-holder"
 
 /* 前后端不分离的接口，用Session验证登录*/
 let currentUser
@@ -26,11 +26,9 @@ const users = {
     language: "zh-cn"
   }
 }
-
-module.exports = [
-  // user login
+export default [
   {
-    url: '/samples/user/login',
+    url: '/api/user/login',
     type: 'post',
     response: config => {
       const {username} = config.body
@@ -46,7 +44,7 @@ module.exports = [
   },
 
   {
-    url: '/samples/user/is-login',
+    url: '/api/user/is-login',
     type: 'get',
     response: () => {
       if (currentUser) {
@@ -59,7 +57,7 @@ module.exports = [
 
   // get user info
   {
-    url: '/samples/user/current',
+    url: '/api/user/current',
     type: 'get',
     response: () => {
       const info = currentUser
@@ -75,7 +73,7 @@ module.exports = [
 
   // update user info
   {
-    url: '/samples/user/info/update',
+    url: '/api/user/info/update',
     type: 'put',
     response: config => {
       const {language} = config.body
@@ -88,11 +86,11 @@ module.exports = [
 
   // user logout
   {
-    url: '/samples/user/logout',
+    url: '/api/user/logout',
     type: 'post',
     response: () => {
       currentUser = undefined;
       return success()
     }
   }
-]
+];
