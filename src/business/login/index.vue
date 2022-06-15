@@ -46,7 +46,28 @@ import { reactive, ref, watch, onBeforeMount, onUnmounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import useStore from "@/store";
 const { user } = useStore();
-
+const tableData = [
+  {
+    date: "2016-05-02",
+    name: "张三",
+    address: "北京朝阳区财富中心 0室",
+  },
+  {
+    date: "2016-05-04",
+    name: "张三",
+    address: "北京朝阳区财富中心 1室",
+  },
+  {
+    date: "2016-05-01",
+    name: "张三",
+    address: "北京朝阳区财富中心 2室",
+  },
+  {
+    date: "2016-05-03",
+    name: "张三",
+    address: "北京朝阳区财富中心 3室",
+  }
+]
 const route = useRoute()
 const router = useRouter()
 
@@ -142,8 +163,6 @@ function getOtherQuery(query) {
 </script>
 
 <style lang="scss" scoped>
-// @use "@/styles/common/variables.scss" as *;
-
 @mixin login-center {
   display: flex;
   justify-content: center;
@@ -151,7 +170,7 @@ function getOtherQuery(query) {
 }
 
 .login-background {
-  // background-color: $--background-color-base;
+  background-color: var(--el-bg-color);
   height: 100%;
   @include login-center;
 }

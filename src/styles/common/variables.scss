@@ -1,22 +1,10 @@
-/* Element 变量 */
+/* fit2cloud-ui的variables加载了element-ui的变量 */
+@use "fit2cloud-ui-plus/src/styles/common/variables.scss"as *;
 
-@forward 'element-plus/theme-chalk/src/common/var.scss' with (
-  $colors: (
-    'primary': (
-      'base': #004A71,
-    ),
-    'success': (
-      'base': #87CB16,
-    ),
-    'warning': (
-      'base': #FFA534,
-    ),
-    'danger': (
-      'base': #F56C6C,
-    ),
-  ),
-);
-
+:root {
+    --el-color-primary: #004A71 !important;
+    --el-bg-color: #F5F5F5 !important;
+}
 
 // $--box-shadow-light: 0 1px 4px 0 rgb(0 0 0 / 14%);
 
@@ -24,6 +12,7 @@
 
 // $--border-radius-base: 2px;
 
+/* 自定义变量 */
 /* layout */
 $layout-bg-color: #F2F2F2;
 
@@ -60,4 +49,3 @@ $header-padding: 30px;
 
 /* main */
 $view-padding: 15px;
-

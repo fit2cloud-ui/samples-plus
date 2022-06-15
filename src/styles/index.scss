@@ -1,4 +1,5 @@
 @use "normalize.css";
 @use "./common/variables.scss" as *;
-@use "element-plus/theme-chalk/src/index.scss" as *;
-@use "./business/app";
+@use "fit2cloud-ui-plus/src/styles/index.scss" as *;
+
+@use "./business/app.scss";
