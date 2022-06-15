@@ -11,7 +11,7 @@ const useUserStore = defineStore({
     roles: []
   }),
   actions: {
-    login(userInfo) {
+    userLogin(userInfo) {
       const {username, password} = userInfo
       return new Promise((resolve, reject) => {
         login({username: username.trim(), password: password})
@@ -25,13 +25,14 @@ const useUserStore = defineStore({
       });
     },
 
-    isLogin() {
+    fetchIsLogin() {
       return new Promise((resolve) => {
         if (this.login) {
           resolve(true)
           return;
         }
         isLogin().then(() => {
+          console.log(this.login)
           this.login = true;
           resolve(true)
         }).catch(() => {
@@ -39,13 +40,13 @@ const useUserStore = defineStore({
         })
       });
     },
-    getCurrentUser() {
+    fetchGetCurrentUser() {
       return new Promise((resolve, reject) => {
         getCurrentUser().then(({ data }) => {
           const {name, roles, language} = data
           this.name = name
           this.roles = roles
-          this.language =  language
+          this.language = language
           resolve(data)
         }).catch(error => {
           reject(error)

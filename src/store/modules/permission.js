@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { constantRoutes } from '@/router';
+import { rolesRoutes, constantRoutes } from '@/router';
 
 const hasPermission = (roles, route) => {
   if (route.meta && route.meta.roles) {
@@ -9,7 +9,7 @@ const hasPermission = (roles, route) => {
   }
 };
 
-export const filterAsyncRoutes = (routes, roles) => {
+export const filterRolesRoutes = (routes, roles) => {
   const res = [];
   routes.forEach(route => {
     const tmp = {...route}

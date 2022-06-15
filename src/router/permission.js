@@ -8,17 +8,20 @@ NProgress.configure({showSpinner: false}) // NProgress Configuration
 const whiteList = ["/login"] // no redirect whitelist
 
 const generateRoutes = async (to, from, next) => {
-  const hasRoles = store.getters.roles && store.getters.roles.length > 0
+  const { user, permission } = useStore();
+  const hasRoles = user.roles && user.roles.length > 0
   if (hasRoles) {
     next()
   } else {
     try {
-      const {roles} = await store.dispatch("user/getCurrentUser")
-      const accessRoutes = await store.dispatch("permission/generateRoutes", roles)
-      router.addRoutes(accessRoutes)
+      const {roles} = await user.fetchGetCurrentUser()
+      const accessRoutes = await permission.generateRoutes(roles)
+      accessRoutes.forEach((route) => {
+        router.addRoute(route);
+      });
       next({...to, replace: true})
     } catch (error) {
-      await store.dispatch("user/logout")
+      await user.logout()
       next(`/login?redirect=${to.path}`)
       NProgress.done()
     }
@@ -28,9 +31,8 @@ const generateRoutes = async (to, from, next) => {
 // 路由前置钩子，根据实际需求修改
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
-
-  const isLogin = await store.dispatch("user/isLogin") // 或者user-token/isLogin
-
+  const { user } = useStore();
+  const isLogin = await user.fetchIsLogin() // 或者userToken.isLogin
   if (isLogin) {
     if (to.path === "/login") {
       next({path: "/"})
