@@ -33,7 +33,7 @@ const activeMenu = computed(() => {
 });
 
 const isCollapse = computed(() => {
-  return !sidebar.opened
+  return !sidebar.value.opened
 });
 
 </script>
