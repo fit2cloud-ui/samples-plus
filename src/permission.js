@@ -11,11 +11,11 @@ const generateRoutes = async (to, from, next) => {
   const { user, permission } = useStore();
   const hasRoles = user.roles && user.roles.length > 0
   if (hasRoles) {
-    next()
+    next();
   } else {
     try {
       const {roles} = await user.fetchGetCurrentUser()
-      const accessRoutes = await permission.generateRoutes(roles)
+      const accessRoutes = await permission.generateRoutes(roles);
       accessRoutes.forEach((route) => {
         router.addRoute(route);
       });
@@ -32,7 +32,8 @@ const generateRoutes = async (to, from, next) => {
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
   const { user } = useStore();
-  const isLogin = await user.fetchIsLogin() // 或者userToken.isLogin
+  const isLogin = await user.fetchIsLogin() // 或者userToken.fetchIsLogin()
+
   if (isLogin) {
     if (to.path === "/login") {
       next({path: "/"})

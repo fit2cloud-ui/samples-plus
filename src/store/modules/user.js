@@ -46,7 +46,7 @@ const useUserStore = defineStore({
           const {name, roles, language} = data
           this.name = name
           this.roles = roles
-          this.language = language
+          // this.language = language
           resolve(data)
         }).catch(error => {
           reject(error)
@@ -65,13 +65,13 @@ const useUserStore = defineStore({
   //   })
   // },
 
-  logout() {
-    logout().then(() => {
-      this.login = false
-      this.roles = []
-      resetRouter()
-    })
-  },
+    logout() {
+      logout().then(() => {
+        this.login = false
+        this.roles = []
+        resetRouter()
+      })
+    },
   }
 });
 

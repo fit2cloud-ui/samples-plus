@@ -6,7 +6,7 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import router from "./router/index";
 import { createPinia} from 'pinia';
 import i18n from '@/locales'
-import '@/router/permission'
+import './permission'
 
 import "@/styles/index.scss"
 

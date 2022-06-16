@@ -41,7 +41,7 @@ const useUserTokenStore = defineStore({
       }).catch(() => {});
     },
   
-    getCurrentUser() {
+    fetchGetCurrentUser() {
       return new Promise((resolve, reject) => {
         getCurrentUser().then(({data}) => {
           const { name, roles, language } = data
@@ -66,7 +66,7 @@ const useUserTokenStore = defineStore({
     //   })
     // },
   
-    logout({ commit }) {
+    logout() {
       logout().then(() => {
         this.token = ""
         this.roles = []
