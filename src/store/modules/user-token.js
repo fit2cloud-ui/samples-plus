@@ -15,7 +15,7 @@ const useUserTokenStore = defineStore({
     roles: []
   }),
   actions: {
-    userLogin(userInfo) {
+    login(userInfo) {
       const { username, password } = userInfo
       return new Promise((resolve, reject) => {
         login({ username: username.trim(), password: password }).then(response => {
@@ -29,7 +29,7 @@ const useUserTokenStore = defineStore({
       })
     },
   
-    fetchIsLogin() {
+    isLogin() {
       return new Promise((resolve, reject) => {
         let token = getToken()
         if (token) {
@@ -41,7 +41,7 @@ const useUserTokenStore = defineStore({
       }).catch(() => {});
     },
   
-    fetchGetCurrentUser() {
+    getCurrentUser() {
       return new Promise((resolve, reject) => {
         getCurrentUser().then(({data}) => {
           const { name, roles, language } = data
@@ -66,7 +66,7 @@ const useUserTokenStore = defineStore({
     //   })
     // },
   
-    fetchLogout() {
+    logout() {
       logout().then(() => {
         this.token = ""
         this.roles = []

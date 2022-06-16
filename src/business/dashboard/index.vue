@@ -1,7 +1,6 @@
 <template>
   <div>
-    首页
-    <!-- {{ $t('commons.message_box.prompt') }} -->
+    {{ $t('commons.message_box.prompt') }}
   </div>
 </template>
 

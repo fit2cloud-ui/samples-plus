@@ -39,7 +39,7 @@ function setLanguage(lang) {
 </script>
 
 <style lang="scss">
-@use "~@/styles/business/header-menu.scss";
+@use "@/styles/business/header-menu.scss";
 
 .header-menu {
   .language-icon {

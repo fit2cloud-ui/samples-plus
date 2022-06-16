@@ -1,9 +1,7 @@
 <template>
-  <el-menu class="header-menu" text-color="inherit" mode="horizontal">
+  <el-menu class="header-menu" text-color="inherit" mode="horizontal" :ellipsis="false">
     <el-sub-menu index="none" popper-class="header-menu-popper">
-      <template #title>
-        <span>{{ name }}</span>
-      </template>
+      <template #title>{{ name }}</template>
       <el-menu-item @click="toPersonal">
         <span>{{ $t('commons.personal.personal_information') }}</span>
       </el-menu-item>
@@ -18,31 +16,24 @@
 </template>
 
 <script setup>
-// import {mapGetters} from "vuex";
+import { computed } from "vue";
+import useStore from "@/store";
+const { user } = useStore();
+const name = computed(() => user.name);
 
-// export default {
-//   name: "PersonalSetting",
-//   computed: {
-//     ...mapGetters([
-//       'name'
-//     ])
-//   },
-//   methods: {
-//     toPersonal() {
+function toPersonal() { }
+function toHelp() {
+  window.open("https://github.com/fit2cloud-ui/samples-plus", "_blank");
+}
+function logout() {
+  user.logout.then(() => {
+    location.reload()
+  })
+}
 
-//     },
-//     toHelp() {
-//       window.open("https://github.com/fit2cloud-ui/samples-plus", "_blank");
-//     },
-//     logout() {
-//       this.$store.dispatch("user/logout").then(() => {
-//         location.reload()
-//       })
-//     }
-//   }
-// }
+
 </script>
 
 <style lang="scss">
-@use "~@/styles/business/header-menu.scss";
+@use "@/styles/business/header-menu.scss";
 </style>

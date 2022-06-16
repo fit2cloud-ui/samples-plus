@@ -14,7 +14,7 @@ const generateRoutes = async (to, from, next) => {
     next();
   } else {
     try {
-      const {roles} = await user.fetchGetCurrentUser()
+      const {roles} = await user.getCurrentUser()
       const accessRoutes = await permission.generateRoutes(roles);
       accessRoutes.forEach((route) => {
         router.addRoute(route);
@@ -23,7 +23,7 @@ const generateRoutes = async (to, from, next) => {
       next({...to, replace: true})
     } catch (error) {
       console.log(error)
-      await user.fetchLogout()
+      await user.logout()
       next(`/login?redirect=${to.path}`)
       NProgress.done()
     }
@@ -34,7 +34,7 @@ const generateRoutes = async (to, from, next) => {
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
   const { user } = useStore();
-  const isLogin = await user.fetchIsLogin() // 或者userToken.fetchIsLogin()
+  const isLogin = await user.isLogin() // 或者userToken.isLogin()
 
   if (isLogin) {
     if (to.path === "/login") {
