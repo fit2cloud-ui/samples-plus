@@ -52,8 +52,7 @@ export const constantRoutes = [
     r1.sort ??= Number.MAX_VALUE
     r2.sort ??= Number.MAX_VALUE
     return r1.sort - r2.sort
-  }),
-  // {path: "*", redirect: "/", hidden: true}
+  })
 ]
 
 // 创建路由
