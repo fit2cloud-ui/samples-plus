@@ -151,8 +151,8 @@ const isCollapse = computed(() => {
       }
     }
 
-    .el-submenu {
-      .el-submenu__title {
+    .el-sub-menu {
+      .el-sub-menu__title {
         @include menu-item;
 
         &:hover {
@@ -162,7 +162,7 @@ const isCollapse = computed(() => {
 
       &.is-active {
         &:not(.is-opened) {
-          .el-submenu__title {
+          .el-sub-menu__title {
             @include menu-active-prefix;
           }
         }
@@ -258,7 +258,7 @@ const isCollapse = computed(() => {
     }
   }
 
-  .nest-menu .el-submenu>.el-submenu__title,
+  .nest-menu .el-sub-menu>.el-sub-menu__title,
   .el-menu-item {
     &.is-active {
       color: $submenu-active-color;

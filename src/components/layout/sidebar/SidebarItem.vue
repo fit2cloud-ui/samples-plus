@@ -4,20 +4,25 @@
       v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{ 'submenu-title-no-dropdown': !isNest }">
-          <item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" :title="$tk(onlyOneChild.meta.title)" />
+        <el-icon v-if="onlyOneChild.meta && onlyOneChild.meta.icon" class="sub-el-icon">
+          <component :is="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" />
+        </el-icon>
+          <span v-if="onlyOneChild.meta.title">{{ $tk(onlyOneChild.meta.title) }}</span>
         </el-menu-item>
       </app-link>
     </template>
 
-    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body
+    <el-sub-menu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body
       popper-class="sidebar-popper">
       <template #title>
-        <i v-if="item.meta && item.meta.icon" :class="[item.meta.icon, 'sub-el-icon']" />
+        <el-icon v-if="item.meta && item.meta.icon" class="sub-el-icon">
+          <component :is="item.meta.icon" />
+        </el-icon>
         <span v-if="item.meta && item.meta.title">{{ $tk(item.meta.title) }}</span>
       </template>
       <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child"
         :base-path="resolvePath(child.path)" class="nest-menu" />
-    </el-submenu>
+    </el-sub-menu>
   </div>
 </template>
 
@@ -80,3 +85,10 @@ function resolvePath(routePath) {
 }
 
 </script>
+<style scoped>
+.sub-el-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+</style>

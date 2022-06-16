@@ -1,4 +1,4 @@
-import { createI18n } from 'vue-i18n'
+import { createI18n } from 'vue-i18n/index'
 
 export function loadLanguages() {
   const context = import.meta.globEager("./lang/*.js");

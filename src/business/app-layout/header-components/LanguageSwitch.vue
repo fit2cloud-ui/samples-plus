@@ -4,7 +4,7 @@
            class="header-menu"
            text-color="inherit"
            mode="horizontal">
-    <el-submenu index="1" popper-class="header-menu-popper">
+    <el-sub-menu index="1" popper-class="header-menu-popper">
       <template #title>
         <font-awesome-icon class="language-icon" :icon="['fas', 'globe']"/>
         <span>{{ languageMap[language] }}</span>
@@ -13,7 +13,7 @@
         <span>{{ value }}</span>
         <i class="el-icon-check" v-if="key === language"/>
       </el-menu-item>
-    </el-submenu>
+    </el-sub-menu>
   </el-menu>
 </template>
 

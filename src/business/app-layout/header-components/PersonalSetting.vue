@@ -1,6 +1,6 @@
 <template>
   <el-menu class="header-menu" text-color="inherit" mode="horizontal">
-    <el-submenu index="none" popper-class="header-menu-popper">
+    <el-sub-menu index="none" popper-class="header-menu-popper">
       <template #title>
         <span>{{ name }}</span>
       </template>
@@ -13,7 +13,7 @@
       <el-menu-item @click="logout">
         <span>{{ $t('commons.personal.exit_system') }}</span>
       </el-menu-item>
-    </el-submenu>
+    </el-sub-menu>
   </el-menu>
 </template>
 
