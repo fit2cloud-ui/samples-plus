@@ -35,21 +35,5 @@ const i18n = createI18n({
 })
 
 export default i18n
-// // 组合翻译，例如key为'请输入{0}'，keys为login.username，则自动将keys翻译并替换到{0} {1}...
-// Vue.prototype.$tm = function (key, ...keys) {
-//   let values = [];
-//   for (const k of keys) {
-//     values.push(i18n.t(k))
-//   }
-//   return i18n.t(key, values);
-// };
 
-// // 忽略警告，即：不存在Key直接返回Key
-// Vue.prototype.$tk = function (key) {
-//   const hasKey = i18n.te(key)
-//   if (hasKey) {
-//     return i18n.t(key)
-//   }
-//   return key
-// };
 

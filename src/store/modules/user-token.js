@@ -66,7 +66,7 @@ const useUserTokenStore = defineStore({
     //   })
     // },
   
-    logout() {
+    fetchLogout() {
       logout().then(() => {
         this.token = ""
         this.roles = []

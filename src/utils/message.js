@@ -1,8 +1,8 @@
 import {ElMessageBox, ElMessage} from 'element-plus';
-// import i18n from "@/i18n";
+import i18n from "@/locales";
 
 export const $alert = (message, callback, options) => {
-  // let title = i18n.t("common.message_box.alert");
+  let title = i18n.global.t("common.message_box.alert");
   ElMessageBox.alert(message, title, options).then(() => {
     callback();
   });
@@ -10,12 +10,12 @@ export const $alert = (message, callback, options) => {
 
 export const $confirm = (message, callback, options = {}) => {
   let defaultOptions = {
-    // confirmButtonText: i18n.t("common.button.ok"),
-    // cancelButtonText: i18n.t("common.button.cancel"),
+    confirmButtonText: i18n.global.t("common.button.ok"),
+    cancelButtonText: i18n.global.t("common.button.cancel"),
     type: 'warning',
     ...options
   }
-  // let title = i18n.t("common.message_box.confirm");
+  let title = i18n.global.t("common.message_box.confirm");
   ElMessageBox.confirm(message, title, defaultOptions).then(() => {
     callback();
   });

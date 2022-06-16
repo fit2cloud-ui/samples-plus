@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!item.hidden">
+  <div v-if="!item.meta || !item.meta.hidden">
     <template
       v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
@@ -12,7 +12,8 @@
     <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body
       popper-class="sidebar-popper">
       <template #title>
-        <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="$tk(item.meta.title)" />
+        <i v-if="item.meta && item.meta.icon" :class="[item.meta.icon, 'sub-el-icon']" />
+        <span v-if="item.meta && item.meta.title">{{ $tk(item.meta.title) }}</span>
       </template>
       <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child"
         :base-path="resolvePath(child.path)" class="nest-menu" />
@@ -22,9 +23,9 @@
 
 <script setup>
 import { ref } from "vue";
-import path from "path"
+import path from 'path-browserify';
 import { isExternals } from "@/utils/validate"
-import Item from "./Item"
+import { $tk } from "@/utils/i18n"
 import AppLink from "./Link.vue"
 
 const props = defineProps({
@@ -43,7 +44,6 @@ const props = defineProps({
 });
 
 const onlyOneChild = ref(null)
-
 
 function hasOneShowingChild(children = [], parent) {
   const showingChildren = children.filter(item => {

@@ -65,7 +65,7 @@ const useUserStore = defineStore({
   //   })
   // },
 
-    logout() {
+  fetchLogout() {
       logout().then(() => {
         this.login = false
         this.roles = []

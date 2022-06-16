@@ -29,10 +29,10 @@ instance.interceptors.request.use(
 const checkAuth = response => {
   // 请根据实际需求修改
   if (response.headers["authentication-status"] === "invalid" || response.status === 401) {
-    let message = i18n.t('login.expires');
+    let message = i18n.global.t('login.expires');
     $alert(message, () => {
       const { user } = useStore();
-      user.logout().then(() => {
+      user.fetchLogout().then(() => {
         location.reload()
       })
     });

@@ -11,7 +11,9 @@ export const constantRoutes = [
   {
     path: '/redirect',
     component: Layout,
-    hidden: true,
+    meta: {
+      hidden: true
+    },
     children: [
       {
         path: '/redirect/:path(.*)',
@@ -22,7 +24,9 @@ export const constantRoutes = [
   {
     path: "/login",
     component: () => import("@/business/login/index.vue"),
-    hidden: true
+    meta: {
+      hidden: true
+    }
   },
   {
     path: '/',
@@ -49,7 +53,7 @@ export const constantRoutes = [
     r2.sort ??= Number.MAX_VALUE
     return r1.sort - r2.sort
   }),
-  {path: "*", redirect: "/", hidden: true}
+  // {path: "*", redirect: "/", hidden: true}
 ]
 
 // 创建路由
@@ -64,8 +68,8 @@ const router = createRouter({
 export function resetRouter() {
   router.getRoutes().forEach(route => {
     const { name } = route;
-    if (name) {
-      router.hasRoute(name) && router.removeRoute(name);
+    if (name && router.hasRoute(name)) {
+      router.removeRoute(name);
     }
   });
 }

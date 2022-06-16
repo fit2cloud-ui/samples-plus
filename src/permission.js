@@ -19,9 +19,11 @@ const generateRoutes = async (to, from, next) => {
       accessRoutes.forEach((route) => {
         router.addRoute(route);
       });
+
       next({...to, replace: true})
     } catch (error) {
-      await user.logout()
+      console.log(error)
+      await user.fetchLogout()
       next(`/login?redirect=${to.path}`)
       NProgress.done()
     }
