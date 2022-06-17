@@ -17,9 +17,10 @@ export function getCurrentUser() {
   return get("/api/user/current")
 }
 
-export function updateInfo(id, data) {
-  return put("/api/user/info/update/" + id, data)
+export function updateInfo(data) {
+  return put("/api/user/info/update", data)
 }
+
 
 
 

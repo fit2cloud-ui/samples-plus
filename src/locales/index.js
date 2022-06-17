@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { createI18n } from 'vue-i18n/index'
 
 export function loadLanguages() {
@@ -13,7 +14,7 @@ export function loadLanguages() {
   return languages
 }
 
-export const getLocale = () => {
+export const getLanguage = () => {
   const cookieLanguage = localStorage.getItem('language')
   if (cookieLanguage) {
     return cookieLanguage
@@ -25,15 +26,39 @@ export const getLocale = () => {
       return locale
     }
   }
+
   // Default language is zh-cn
   return 'zh-cn'
 }
 
+
 const i18n = createI18n({
-  locale: getLocale(),
+  locale: getLanguage(),
   messages: loadLanguages()
 })
 
+
+export async function loadLocaleMessages(locale) {
+  // load locale messages with dynamic import
+  const messages = await import(`./lang/${locale}.js`)
+  // set locale and locale message
+  i18n.global.setLocaleMessage(locale, messages.default)
+
+  return nextTick()
+}
+
+export const setLanguage = lang => {
+  if (i18n.global.locale !== lang) {
+    loadLocaleMessages(lang)
+    localStorage.setItem('language', lang)
+    if (i18n.mode === 'legacy') {
+      i18n.global.locale = lang
+    } else {
+      i18n.global.locale.value = lang
+    }
+
+  }
+}
 export default i18n
 
 

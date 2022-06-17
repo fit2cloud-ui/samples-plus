@@ -1,6 +1,7 @@
 import elementZhLocale from 'element-plus/lib/locale/lang/zh-cn'
 const message = {
   commons: {
+    home: "首页",
     message_box: {
       alert: "警告",
       confirm: "确认",

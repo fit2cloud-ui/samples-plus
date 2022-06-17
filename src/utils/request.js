@@ -32,7 +32,7 @@ const checkAuth = response => {
     let message = i18n.global.t('login.expires');
     $alert(message, () => {
       const { user } = useStore();
-      user.logout().then(() => {
+      user.userLogout().then(() => {
         location.reload()
       })
     });

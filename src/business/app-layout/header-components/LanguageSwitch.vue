@@ -1,51 +1,40 @@
 <template>
-  <el-menu :unique-opened="true"
-           :default-active="language"
-           class="header-menu"
-           text-color="inherit"
-           mode="horizontal">
-    <el-sub-menu index="1" popper-class="header-menu-popper">
+  <el-menu :default-active="language" class="header-menu" text-color="inherit" mode="horizontal" :ellipsis="false">
+    <el-sub-menu index="none" popper-class="header-menu-popper">
       <template #title>
-        <font-awesome-icon class="language-icon" :icon="['fas', 'globe']"/>
+        <el-icon><Setting /></el-icon>
         <span>{{ languageMap[language] }}</span>
       </template>
       <el-menu-item v-for="(value, key) in languageMap" :key="key" :index="key" @click="setLanguage(key)">
         <span>{{ value }}</span>
-        <i class="el-icon-check" v-if="key === language"/>
+        <i class="el-icon-check" v-if="key === language" />
       </el-menu-item>
     </el-sub-menu>
   </el-menu>
 </template>
 
 <script setup>
-// import { computed } from 'vue';
-const  languageMap ={
-        "zh-cn": "中文(简体)",
-        "zh-tw": "中文(繁體)",
-        "en-US": "English",
-      }
+import { computed } from 'vue';
+import useStore from "@/store";
+const languageMap = {
+  "zh-cn": "中文(简体)",
+  "zh-tw": "中文(繁體)",
+  "en": "English",
+}
 
-  // computed: {
-  //   language() {
-  //     return this.$store.getters.language
-  //   }
-  // },
+const { user } = useStore();
+const language = computed(() => user.language);
 
 function setLanguage(lang) {
-      this.$store.dispatch('user/setLanguage', lang).then(() => {
-        // do something
-      })
-    }
+  user.userSetLanguage(lang).then(() => {
+    return
+    // do something
+  })
+}
 </script>
 
 <style lang="scss">
 @use "@/styles/business/header-menu.scss";
-
-.header-menu {
-  .language-icon {
-    width: 24px;
-  }
-}
 
 .header-menu-popper {
   .el-icon-check {

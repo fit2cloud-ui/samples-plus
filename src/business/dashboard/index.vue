@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ $t('commons.message_box.prompt') }}
+    {{ $t('commons.home') }}
   </div>
 </template>
 

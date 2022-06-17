@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { login, getCurrentUser, updateInfo, logout } from '@/api/user-token'
 import { resetRouter } from '@/router'
 import { getToken, setToken, removeToken } from '@/utils/token'
-// import { getLanguage, setLanguage } from "@/i18n";
+import { getLanguage, setLanguage } from "@/locales";
 
 /* 前后端不分离的登录办法*/
 
@@ -11,7 +11,7 @@ const useUserTokenStore = defineStore({
   state: () => ({
     token: getToken(),
     name: "",
-    // language: getLanguage(),
+    language: getLanguage(),
     roles: []
   }),
   actions: {
@@ -47,7 +47,7 @@ const useUserTokenStore = defineStore({
           const { name, roles, language } = data
           this.name = name
           this.roles = roles
-          // this.language = language
+          this.language = language
           resolve(data)
         }).catch(error => {
           reject(error)
@@ -55,25 +55,30 @@ const useUserTokenStore = defineStore({
       });
     },
   
-    // setLanguage(language) {
-    //   this.language = language
-    //   return new Promise((resolve, reject) => {
-    //     updateInfo(state.id, { language: language }).then(response => {
-    //       resolve(response)
-    //     }).catch(error => {
-    //       reject(error)
-    //     })
-    //   })
-    // },
-  
-    logout() {
-      logout().then(() => {
-        this.token = ""
-        this.roles = []
-        removeToken()
-        resetRouter()
+    setLanguage(language) {
+      this.language = language
+      setLanguage(language)
+      return new Promise((resolve, reject) => {
+        updateInfo({language: language}).then(response => {
+          resolve(response)
+        }).catch(error => {
+          reject(error)
+        })
       })
-    }
+    },
+  
+    userLogout() {
+      return new Promise((resolve, reject) => {
+        logout().then(() => {
+          this.login = false
+          this.roles = []
+          resetRouter()
+          resolve()
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
   }
 });
 

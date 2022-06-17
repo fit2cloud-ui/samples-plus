@@ -1,10 +1,11 @@
 import elementEnLocale from 'element-plus/lib/locale/lang/en'
 const message = {
-  // TODO
+  commons: {
+    home: "Homepage",
+  }
 }
 
 export default {
   ...elementEnLocale,
   ...message
 };
-

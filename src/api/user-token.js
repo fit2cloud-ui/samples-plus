@@ -14,7 +14,7 @@ export function getCurrentUser() {
 }
 
 export function updateInfo(data) {
-  return put("/api/user-token/update", data)
+  return put("/api/user/info/update", data)
 }
 
 

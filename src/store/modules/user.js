@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia';
 import { login, isLogin, getCurrentUser, updateInfo, logout } from '@/api/user'
 import { resetRouter } from '@/router'
+import { getLanguage, setLanguage } from "@/locales";
 
 const useUserStore = defineStore({
   id: 'user',
   state: () => ({
     login: false,
     name: "",
-    // language: getLanguage(),
+    language: getLanguage(),
     roles: []
   }),
   actions: {
@@ -32,7 +33,6 @@ const useUserStore = defineStore({
           return;
         }
         isLogin().then(() => {
-          console.log(this.login)
           this.login = true;
           resolve(true)
         }).catch(() => {
@@ -46,7 +46,7 @@ const useUserStore = defineStore({
           const {name, roles, language} = data
           this.name = name
           this.roles = roles
-          // this.language = language
+          this.language = language
           resolve(data)
         }).catch(error => {
           reject(error)
@@ -54,22 +54,28 @@ const useUserStore = defineStore({
       });
     },
 
-  // setLanguage({commit, state}, language) {
-  //   commit('SET_LANGUAGE', language)
-  //   return new Promise((resolve, reject) => {
-  //     updateInfo(state.id, {language: language}).then(response => {
-  //       resolve(response)
-  //     }).catch(error => {
-  //       reject(error)
-  //     })
-  //   })
-  // },
+    userSetLanguage(language) {
+      this.language = language
+      setLanguage(language)
+      return new Promise((resolve, reject) => {
+        updateInfo( {language: language}).then(response => {
+          resolve(response)
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
 
-  logout() {
-      logout().then(() => {
-        this.login = false
-        this.roles = []
-        resetRouter()
+    userLogout() {
+      return new Promise((resolve, reject) => {
+        logout().then(() => {
+          this.login = false
+          this.roles = []
+          resetRouter()
+          resolve()
+        }).catch(error => {
+          reject(error)
+        })
       })
     },
   }
