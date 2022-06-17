@@ -110,7 +110,7 @@ function submitForm(formEl) {
   formEl.validate((valid) => {
     if (valid) {
       loading.value = true;
-      user.login(form)
+      user.userLogin(form)
         .then(() => {
           router.push({
             path: redirect.value || "/",

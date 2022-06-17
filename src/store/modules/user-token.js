@@ -15,7 +15,7 @@ const useUserTokenStore = defineStore({
     roles: []
   }),
   actions: {
-    login(userInfo) {
+    userLogin(userInfo) {
       const { username, password } = userInfo
       return new Promise((resolve, reject) => {
         login({ username: username.trim(), password: password }).then(response => {

@@ -22,7 +22,6 @@ const generateRoutes = async (to, from, next) => {
 
       next({...to, replace: true})
     } catch (error) {
-      console.log(error)
       await user.logout()
       next(`/login?redirect=${to.path}`)
       NProgress.done()
