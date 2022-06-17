@@ -38,7 +38,7 @@ const showBack = computed(() => {
 
 .content-container {
   transition: 0.3s;
-  color: $--color-text-primary;
+  color: var(--el-text-color-primary);
   background-color: #FFFFFF;
   overflow: auto;
   height: 100%;
