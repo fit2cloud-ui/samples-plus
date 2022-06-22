@@ -17,7 +17,7 @@
 import { computed, useSlots } from 'vue';
 import BackButton from "@/components/back-button/index.vue";
 const slots = useSlots()
-defineProps({
+const prop = defineProps({
   header: String,
   backPath: String,
   backName: String,
@@ -25,11 +25,9 @@ defineProps({
 });
 
 const showBack = computed(() => {
-  return function ({ backPath, backName, backTo }) {
+  const {backPath, backName, backTo } = prop
     return backPath || backName || backTo
-  }
 });
-
 </script>
 
 <style lang="scss">

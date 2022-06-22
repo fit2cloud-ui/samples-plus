@@ -218,7 +218,7 @@ function getOtherQuery(query) {
       margin-top: 10px;
     }
 
-    & ::v-deep(.el-input__inner) {
+    & :deep(.el-input__inner) {
       border-radius: 0;
     }
   }

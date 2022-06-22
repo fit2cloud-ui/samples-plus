@@ -13,7 +13,9 @@ import "@/styles/index.scss"
 const app = createApp(App)
 
 app.use(router)
-app.use(ElementPlus)
+app.use(ElementPlus, {
+  locale: i18n.global.messages[i18n.global.locale],
+})
 app.use(Fit2CloudPlus)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)

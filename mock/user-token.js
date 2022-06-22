@@ -41,7 +41,7 @@ const users = {
 export default [
   // user login
   {
-    url: '/samples/user-token/login',
+    url: '/api/user-token/login',
     type: 'post',
     response: config => {
       const {username} = config.body
@@ -57,7 +57,7 @@ export default [
 
   // get user info
   {
-    url: '/samples/user-token/info',
+    url: '/api/user-token/info',
     type: 'get',
     response: (config) => {
       let token = config.headers[TOKEN_KEY]
@@ -74,7 +74,7 @@ export default [
 
   // update user info
   {
-    url: '/samples/user/info/update',
+    url: '/api/user/info/update',
     type: 'put',
     response: config => {
       let token = config.headers[TOKEN_KEY]
@@ -87,7 +87,7 @@ export default [
 
   // user logout
   {
-    url: '/samples/user/logout',
+    url: '/api/user/logout',
     type: 'post',
     response: () => {
       // do something

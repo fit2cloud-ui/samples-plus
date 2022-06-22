@@ -1,4 +1,5 @@
 import elementZhTwLocale from 'element-plus/lib/locale/lang/zh-tw'
+import fit2cloudZhTwLocale from 'fit2cloud-ui-plus/src/locale/lang/zh-tw'
 const message = {
   commons: {
     home: "首頁",
@@ -54,5 +55,6 @@ const message = {
 
 export default {
   ...elementZhTwLocale,
+  ...fit2cloudZhTwLocale,
   ...message
 };

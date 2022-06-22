@@ -167,7 +167,7 @@ const isCollapse = computed(() => {
           }
         }
 
-        .el-submenu__title {
+        .el-sub-menu__title {
           @include menu-item-active;
 
           .sub-el-icon,
@@ -196,7 +196,7 @@ const isCollapse = computed(() => {
     }
 
     .nest-menu,
-    .el-submenu__title,
+    .el-sub-menu__title,
     .submenu-title-no-dropdown {
       span {
         padding-left: 30px;
@@ -218,12 +218,12 @@ const isCollapse = computed(() => {
         line-height: $menu-height;
       }
 
-      .el-submenu__title {
+      .el-sub-menu__title {
         padding-left: 20px !important;
       }
 
       .submenu-title-no-dropdown,
-      .el-submenu__title {
+      .el-sub-menu__title {
         max-width: 60px;
         text-align: center;
 
@@ -235,7 +235,7 @@ const isCollapse = computed(() => {
           margin: 0;
         }
 
-        .el-submenu__icon-arrow {
+        .el-sub-menu__icon-arrow {
           display: none;
         }
       }

@@ -5,7 +5,6 @@ const modules = import.meta.globEager('./modules/*.js')
 
 export const Layout = () => import('@/business/app-layout/horizontal-layout/index.vue');
 
-// 参数说明: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
 // 静态路由
 export const constantRoutes = [
   {
