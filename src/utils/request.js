@@ -100,12 +100,12 @@ export const del = (url, loading) => {
   return promise(request({url: url, method: "delete"}), loading)
 };
 
-export default {
-  install(app) {
-    app.config.globalProperties.$get = get;
-    app.config.globalProperties.$post = post;
-    app.config.globalProperties.$put = put;
-    app.config.globalProperties.$delete = del;
-    app.config.globalProperties.$request = request;
-  }
-}
+// export default {
+//   install(app) {
+//     app.config.globalProperties.$get = get;
+//     app.config.globalProperties.$post = post;
+//     app.config.globalProperties.$put = put;
+//     app.config.globalProperties.$delete = del;
+//     app.config.globalProperties.$request = request;
+//   }
+// }

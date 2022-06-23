@@ -57,15 +57,15 @@ export const $error = (message, duration) => {
   })
 }
 
-export default {
-  install(app) {
-    // 使用$$前缀，避免与Element UI的冲突
-    app.config.globalProperties.$$confirm = $confirm;
-    app.config.globalProperties.$$alert = $alert;
+// export default {
+//   install(app) {
+//     // 使用$$前缀，避免与Element UI的冲突
+//     app.config.globalProperties.$$confirm = $confirm;
+//     app.config.globalProperties.$$alert = $alert;
 
-    app.config.globalProperties.$success = $success;
-    app.config.globalProperties.$info = $info;
-    app.config.globalProperties.$warning = $warning;
-    app.config.globalProperties.$error = $error;
-  }
-}
+//     app.config.globalProperties.$success = $success;
+//     app.config.globalProperties.$info = $info;
+//     app.config.globalProperties.$warning = $warning;
+//     app.config.globalProperties.$error = $error;
+//   }
+// }

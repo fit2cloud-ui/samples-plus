@@ -3,8 +3,11 @@
     <div class="complex-table__header" v-if="$slots.header || header">
       <slot name="header">{{ header }}</slot>
     </div>
+    <div v-if="$slots.toolbar && !searchConfig" style="margin-bottom: 10px">
+      <slot name="toolbar"></slot>
+    </div>
 
-    <template v-if="$slots.toolbar || searchConfig">
+    <template v-if="searchConfig">
       <fu-filter-bar v-bind="searchConfig" @exec="search">
         <template #tl>
           <slot name="toolbar"></slot>
@@ -34,14 +37,7 @@
 </template>
 <script setup>
 import { ref, useAttrs } from 'vue';
-const attrs = useAttrs()
-console.log(attrs)
 defineProps({
-  // columns: {
-  //   type: Array,
-  //   default: () => []
-  // },
-  localKey: String, // 如果需要记住选择的列，则这里添加一个唯一的Key
   header: String,
   searchConfig: Object,
   paginationConfig: Object,

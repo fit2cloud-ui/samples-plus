@@ -7,7 +7,7 @@ import router from "./router/index";
 import { createPinia} from 'pinia';
 import i18n from '@/locales'
 import directives from "./directive";
-import './permission'
+import './router/permission'
 
 import "@/styles/index.scss"
 

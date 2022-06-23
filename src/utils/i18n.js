@@ -22,9 +22,9 @@ export const $t = (key, value) => {
   return i18n.global.t(key, value)
 }
 
-export default {
-  install(app) {
-    app.config.globalProperties.$tm = $tm;
-    app.config.globalProperties.$tk = $tk;
-  }
-}
+// export default {
+//   install(app) {
+//     app.config.globalProperties.$tm = $tm;
+//     app.config.globalProperties.$tk = $tk;
+//   }
+// }

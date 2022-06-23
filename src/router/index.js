@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-// import useStore from '@/store';
 
 const modules = import.meta.globEager('./modules/*.js')
 
