@@ -26,7 +26,7 @@ const useUserStore = defineStore({
       });
     },
 
-    isLogin() {
+    getIsLogin() {
       return new Promise((resolve) => {
         if (this.login) {
           resolve(true)

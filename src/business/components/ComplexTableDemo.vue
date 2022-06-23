@@ -82,9 +82,7 @@ const searchConfig = reactive({
 function create() {
   router.push({ name: "CreateFormDemo" })
 }
-function select(selection) {
-  console.log(selection)
-}
+
 function edit(row) {
   console.log("编辑: ", row)
 }

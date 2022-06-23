@@ -26,15 +26,15 @@ const ComponentsSetting = {
         title: "route.complex_table",
       }
     },
-    // {
-    //   path: "form-create",
-    //   component: () => import("@/business/components/CreateFormDemo"),
-    //   name: "CreateFormDemo",
-    //   hidden: true,
-    //   meta: {
-    //     activeMenu: "/components/complex-table"
-    //   }
-    // },
+    {
+      path: "form-create",
+      component: () => import("@/business/components/CreateFormDemo.vue"),
+      name: "CreateFormDemo",
+      meta: {
+        activeMenu: "/components/complex-table",
+        hidden: true,
+      }
+    },
     // {
     //   path: "form-view",
     //   component: () => import("@/business/components/ViewCardDemo"),

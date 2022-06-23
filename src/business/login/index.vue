@@ -45,6 +45,7 @@
 import { reactive, ref, watch, onBeforeMount, onUnmounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import useStore from "@/store";
+import { $tm, $t } from "@/utils/i18n";
 const { user } = useStore();
 const route = useRoute()
 const router = useRouter()
@@ -62,7 +63,7 @@ const rules = {
   username: [
     {
       required: true,
-      // message: this.$tm("commons.validate.input", "login.username"),
+      message: $tm("commons.validate.input", "login.username"),
       trigger: "blur",
     },
   ],
@@ -70,13 +71,13 @@ const rules = {
     // 先去掉方便测试
     {
       required: true,
-      // message: this.$tm("commons.validate.input", "login.password"),
+      message: $tm("commons.validate.input", "login.password"),
       trigger: "blur",
     },
     {
       min: 6,
       max: 30,
-      // message: this.$t("commons.validate.limit", [6, 30]),
+      message: $t("commons.validate.limit", [6, 30]),
       trigger: "blur",
     },
   ],

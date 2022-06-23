@@ -23,7 +23,7 @@ const name = computed(() => user.name);
 
 function toPersonal() {
   return
- }
+}
 function toHelp() {
   window.open("https://github.com/fit2cloud-ui/samples-plus", "_blank");
 }
