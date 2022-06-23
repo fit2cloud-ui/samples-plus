@@ -10,7 +10,7 @@
           <label-value label="用户名">管理员</label-value>
           <label-value label="Email">admin@fit2cloud.com</label-value>
           <label-value label="启用/禁用">
-            <el-tag type="primary">启用</el-tag>
+            <el-tag>启用</el-tag>
           </label-value>
         </view-card>
       </el-col>
@@ -21,7 +21,7 @@
           <label-value label="用户名">管理员</label-value>
           <label-value label="Email">admin@fit2cloud.com</label-value>
           <label-value label="启用/禁用">
-            <el-tag type="primary">启用</el-tag>
+            <el-tag>启用</el-tag>
           </label-value>
         </view-card>
       </el-col>
@@ -34,7 +34,7 @@
           <label-value label="用户名">管理员</label-value>
           <label-value label="Email">admin@fit2cloud.com</label-value>
           <label-value label="启用/禁用">
-            <el-tag type="primary">启用</el-tag>
+            <el-tag>启用</el-tag>
           </label-value>
         </view-card>
       </el-col>
@@ -42,18 +42,13 @@
   </layout-content>
 </template>
 
-<script>
-import ViewCard from "@/components/view-card";
-import LabelValue from "@/components/view-card/label-value";
-import LayoutContent from "@/components/layout/LayoutContent";
-
-export default {
-  name: "ViewCardDemo",
-  components: {LabelValue, LayoutContent, ViewCard},
-  methods: {
-    edit() {
-      this.$router.push("/components/form-edit")
-    }
-  }
+<script setup>
+import { useRouter } from "vue-router";
+import LayoutContent from "@/components/layout/LayoutContent.vue";
+import ViewCard from "@/components/view-card/index.vue";
+import LabelValue from "@/components/view-card/label-value/index.vue";
+const router = useRouter()
+function edit() {
+  router.push("/components/form-edit")
 }
 </script>

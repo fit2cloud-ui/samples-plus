@@ -15,6 +15,7 @@ const app = createApp(App)
 app.use(router)
 app.use(ElementPlus, {
   locale: i18n.global.messages[i18n.global.locale],
+  size: 'default', zIndex: 3000
 })
 app.use(Fit2CloudPlus)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {

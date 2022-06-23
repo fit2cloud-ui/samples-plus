@@ -1,6 +1,6 @@
 <template>
   <layout-content header="编辑表单" back-name="ViewCardDemo">
-    <el-form ref="form" :model="form" :rules="rules" label-width="100px" label-position="right">
+    <el-form ref="formRef" :model="form" :rules="rules" label-width="100px" label-position="right">
       <form-part header="第一部分">
         <el-form-item label="活动名称" prop="name">
           <el-input v-model="form.name"></el-input>
@@ -18,56 +18,53 @@
           <el-input type="textarea" v-model="form.desc"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="save">保存</el-button>
-          <el-button @click="reset">重置</el-button>
+          <el-button type="primary" @click="save(formRef)">保存</el-button>
+          <el-button @click="reset(formRef)">重置</el-button>
         </el-form-item>
       </form-part>
     </el-form>
   </layout-content>
 </template>
 
-<script>
-import LayoutContent from "@/components/layout/LayoutContent";
-import FormPart from "@/components/form-part";
+<script setup>
+import { reactive, ref } from 'vue'
+import LayoutContent from "@/components/layout/LayoutContent.vue";
+import FormPart from "@/components/form-part/index.vue";
+import {$alert} from "@/utils/message"
 
-export default {
-  name: "FormPartDemo",
-  components: {FormPart, LayoutContent},
-  data() {
-    return {
-      form: {
-        name: "",
-        region: "",
-        desc: ""
-      },
-      rules: {
-        name: [
-          {required: true, message: '请输入活动名称', trigger: 'blur'},
-          {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
-        ],
-        region: [
-          {required: true, message: '请选择活动区域', trigger: 'change'}
-        ],
-        desc: [
-          {required: true, message: '请填写活动形式', trigger: 'blur'}
-        ]
-      }
+const formRef = ref()
+const form = reactive({
+  name: "",
+  region: "",
+  desc: ""
+})
+const rules = reactive({
+  name: [
+    { required: true, message: '请输入活动名称', trigger: 'blur' },
+    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+  ],
+  region: [
+    { required: true, message: '请选择活动区域', trigger: 'change' }
+  ],
+  desc: [
+    { required: true, message: '请填写活动形式', trigger: 'blur' }
+  ]
+})
+
+function save(formEl) {
+  if (!formEl) return
+  formEl.validate((valid) => {
+    if (valid) {
+      console.log(valid)
+      $alert('submit!');
+    } else {
+      console.log('error submit!')
+      return false
     }
-  },
-  methods: {
-    save() {
-      this.$refs.form.validate((valid) => {
-        if (valid) {
-          this.$alert('submit!');
-        } else {
-          console.log('error submit!!');
-          return false;
-        }
-      });
-    },
-    reset() {
-      this.$refs.form.resetFields();
-    }
-  }
+  })
+}
+function reset(formEl) {
+  if (!formEl) return
+  formEl.resetFields()
 }
 </script>
