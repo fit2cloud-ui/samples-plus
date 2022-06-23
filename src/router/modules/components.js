@@ -47,9 +47,9 @@ const ComponentsSetting = {
       path: "form-edit",
       component: () => import("@/business/components/FormPartDemo.vue"),
       name: "FormPartDemo",
-      hidden: true,
       meta: {
-        activeMenu: "/components/form-view"
+        activeMenu: "/components/form-view",
+        hidden: true,
       }
     },
     // {
