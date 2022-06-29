@@ -1,17 +1,17 @@
 <template>
   <layout-content>
-    <view-card label-width="200px" header="v-has-permissions" icon="el-icon-success" type="success">
+    <view-card label-width="200px" header="v-has-permissions" icon="SuccessFilled" type="success">
       <label-value label="v-has-permissions">有任意一项权限时显示</label-value>
       <label-value label="v-has-permissions.and">有所有权限时显示</label-value>
     </view-card>
 
-    <view-card label-width="200px" header="v-lack-permissions" icon="el-icon-error" type="danger"
+    <view-card label-width="200px" header="v-lack-permissions" icon="CircleCloseFilled" type="danger"
       style="margin-top: 20px">
       <label-value label="v-lack-permissions">没有任意一项权限时显示</label-value>
       <label-value label="v-lack-permissions.and">没有所有权限时显示</label-value>
     </view-card>
 
-    <view-card label-width="300px" header="有权示例" icon="el-icon-info" style="margin-top: 20px">
+    <view-card label-width="300px" header="有权示例" icon="InfoFilled" style="margin-top: 20px">
       <label-value>切换用户 admin、editor、readonly 检查权限判断</label-value>
 
       <label-value label="当前用户权限">{{ roles }}</label-value>
@@ -36,7 +36,7 @@
 
     </view-card>
 
-    <view-card label-width="300px" header="无权示例" icon="el-icon-info" style="margin-top: 20px">
+    <view-card label-width="300px" header="无权示例" icon="InfoFilled" style="margin-top: 20px">
       <label-value>切换用户 admin、editor、readonly 检查权限判断</label-value>
 
       <label-value label="当前用户权限">{{ roles }}</label-value>

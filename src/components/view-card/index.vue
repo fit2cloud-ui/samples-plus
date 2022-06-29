@@ -2,7 +2,10 @@
   <el-card :class="['view-card', 'view-card--' + type]" :shadow="shadow" v-bind="$attrs">
     <template #header v-if="$slots.header || header">
       <slot name="header">
-        <i :class="icon" v-if="icon"/>{{ header }}
+        <el-icon v-if="icon" class="icon">
+          <component :is="icon" />
+        </el-icon>
+        <span>{{ header }}</span>
       </slot>
     </template>
     <slot></slot>
@@ -12,17 +15,17 @@
 <script setup>
 import { provide } from 'vue'
 const prop = defineProps({
-    icon: String,
-    header: String,
+  icon: String,
+  header: String,
+  type: String,
+  shadow: {
     type: String,
-    shadow: {
-      type: String,
-      default: "hover"
-    },
-    labelWidth: {
-      type: String,
-      default: "120px"
-    }
+    default: "hover"
+  },
+  labelWidth: {
+    type: String,
+    default: "120px"
+  }
 });
 provide('itemLabelWidth', prop.labelWidth)
 
@@ -42,8 +45,10 @@ provide('itemLabelWidth', prop.labelWidth)
     border-top-left-radius: var(--el-card-border-radius);
     border-top-right-radius: var(--el-card-border-radius);
 
-    i {
+    .icon {
       margin-right: 5px;
+      vertical-align: middle;
+      display: inline;
     }
   }
 
@@ -52,7 +57,7 @@ provide('itemLabelWidth', prop.labelWidth)
     border-radius: var(--el-card-border-radius);
   }
 
-  .el-card__header + .el-card__body {
+  .el-card__header+.el-card__body {
     border-top: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;

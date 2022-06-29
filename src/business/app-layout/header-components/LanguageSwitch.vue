@@ -7,7 +7,7 @@
       </template>
       <el-menu-item v-for="(value, key) in languageMap" :key="key" :index="key" @click="setLanguage(key)">
         <span>{{ value }}</span>
-        <i class="el-icon-check" v-if="key === language" />
+        <el-icon v-if="key === language"><Check class="icon-check"/></el-icon>
       </el-menu-item>
     </el-sub-menu>
   </el-menu>
@@ -37,7 +37,7 @@ function setLanguage(lang) {
 @use "@/styles/business/header-menu.scss";
 
 .header-menu-popper {
-  .el-icon-check {
+  .icon-check {
     margin-left: 10px;
     color: var(--el-color-primary);
   }

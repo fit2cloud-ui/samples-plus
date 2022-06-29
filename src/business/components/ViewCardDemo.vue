@@ -5,7 +5,7 @@
     </template>
     <el-row type="flex" :gutter="20">
       <el-col :span="12">
-        <view-card icon="el-icon-user-solid" header="用户信息">
+        <view-card icon="UserFilled" header="用户信息">
           <label-value label="ID">admin</label-value>
           <label-value label="用户名">管理员</label-value>
           <label-value label="Email">admin@fit2cloud.com</label-value>
@@ -16,7 +16,7 @@
       </el-col>
 
       <el-col :span="12">
-        <view-card icon="el-icon-user-solid" header="用户信息2" type="success">
+        <view-card icon="UserFilled" header="用户信息2" type="success">
           <label-value label="ID">admin</label-value>
           <label-value label="用户名">管理员</label-value>
           <label-value label="Email">admin@fit2cloud.com</label-value>
@@ -29,7 +29,7 @@
 
     <el-row type="flex" style="margin-top: 20px">
       <el-col :span="24">
-        <view-card icon="el-icon-user-solid" header="用户信息3" type="warning">
+        <view-card icon="UserFilled" header="用户信息3" type="warning">
           <label-value label="ID">admin</label-value>
           <label-value label="用户名">管理员</label-value>
           <label-value label="Email">admin@fit2cloud.com</label-value>
