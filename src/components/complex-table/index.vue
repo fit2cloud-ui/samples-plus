@@ -36,7 +36,7 @@
   </div>
 </template>
 <script setup>
-import { ref, useAttrs } from 'vue';
+import { ref } from 'vue';
 defineProps({
   header: String,
   searchConfig: Object,

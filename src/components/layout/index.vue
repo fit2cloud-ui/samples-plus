@@ -3,7 +3,7 @@
     <slot>
       <layout-sidebar/>
       <layout-main>
-        <layout-header>
+        <layout-header class="header-container">
           <slot name="header"></slot>
         </layout-header>
         <layout-view/>
@@ -47,8 +47,8 @@ import LayoutView from "./LayoutView.vue";
 }
 
 .header-container {
-  height: $header-height;
-  padding: 0 $header-padding;
+  padding: 0 0 0 20px;
+  margin: 8px 0;
 }
 
 .view-container {

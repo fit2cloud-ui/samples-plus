@@ -25,8 +25,8 @@ const prop = defineProps({
 });
 
 const showBack = computed(() => {
-  const {backPath, backName, backTo } = prop
-    return backPath || backName || backTo
+  const { backPath, backName, backTo } = prop
+  return backPath || backName || backTo
 });
 </script>
 
@@ -46,7 +46,8 @@ const showBack = computed(() => {
   box-sizing: border-box;
 
   .content-container__header {
-    line-height: 60px;
+    font-weight: 700;
+    padding: 5px 0 25px;
     font-size: 18px;
   }
 
