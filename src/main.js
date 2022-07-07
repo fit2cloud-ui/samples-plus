@@ -8,6 +8,7 @@ import { createPinia} from 'pinia';
 import i18n from '@/locales'
 import directives from "./directive";
 import './router/permission'
+import  Components from '@/components' // 全局共用组件
 
 import "@/styles/index.scss"
 
@@ -22,6 +23,7 @@ app.use(Fit2CloudPlus)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
+app.use(Components)
 app.use(createPinia())
 app.use(i18n)
 app.use(directives);

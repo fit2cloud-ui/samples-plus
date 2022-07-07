@@ -37,6 +37,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+defineOptions({ name: "ComplexTable" });  // 组件名
 defineProps({
   header: String,
   searchConfig: Object,

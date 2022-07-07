@@ -26,6 +26,7 @@
     "mockjs": "^1.1.0",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0",
+    "unplugin-vue-define-options": "^0.6.2",
     "vite": "^2.9.9",
     "vite-plugin-mock": "^2.9.6"
   }
