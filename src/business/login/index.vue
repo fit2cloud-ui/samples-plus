@@ -149,7 +149,7 @@ function getOtherQuery(query) {
 }
 
 .login-background {
-  background-color: var(--el-bg-color);
+  background-color: #F5F5F5;
   height: 100%;
   @include login-center;
 }

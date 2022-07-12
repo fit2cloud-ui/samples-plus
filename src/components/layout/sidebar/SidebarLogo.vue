@@ -45,14 +45,14 @@ defineProps({
     background-color: hsla(0, 0%, 100%, .5);
   }
 
-  & .sidebar-logo-link {
+  .sidebar-logo-link {
     padding: 0 20px;
     display: flex;
     align-items: center;
     height: 100%;
     width: auto;
 
-    & .sidebar-logo {
+    .sidebar-logo {
       height: $logo-height;
       vertical-align: middle;
     }
