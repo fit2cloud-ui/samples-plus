@@ -3,7 +3,7 @@ import i18n from "@/locales";
 
 export const $alert = (message, options) => {
   let title = i18n.global.t("commons.message_box.alert");
-  ElMessageBox.alert(message, title, options)
+  return ElMessageBox.alert(message, title, options)
 }
 
 export const $confirm = (message, options = {}) => {
@@ -14,7 +14,7 @@ export const $confirm = (message, options = {}) => {
     ...options
   }
   let title = i18n.global.t("commons.message_box.confirm");
-  ElMessageBox.confirm(message, title, defaultOptions)
+  return ElMessageBox.confirm(message, title, defaultOptions)
 }
 
 export const $success = (message, duration) => {

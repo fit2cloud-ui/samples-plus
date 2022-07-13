@@ -16,7 +16,7 @@ const prop = defineProps({
     type: String,
     default: "default",
     validator: value => {
-      ['default', 'small', 'large'].includes(value)
+      return ['default', 'small', 'large'].includes(value)
     }
   }
 });
