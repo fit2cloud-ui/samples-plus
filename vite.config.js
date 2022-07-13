@@ -28,7 +28,7 @@ export default defineConfig(({command}) => {
       }
     },
     build: {
-      outDir: 'demo',
+      outDir: 'docs',
     }
   }
 })
