@@ -1,0 +1,1 @@
+import{o,l as a,m as t,x as s,q as e}from"./index.014e1043.js";const _=e(" Header "),n=e(" Toolbar "),r=e(" Content "),m={__name:"LayoutContentDemo",setup(c){return(l,d)=>(o(),a(s,null,{header:t(()=>[_]),toolbar:t(()=>[n]),default:t(()=>[r]),_:1}))}};export{m as default};

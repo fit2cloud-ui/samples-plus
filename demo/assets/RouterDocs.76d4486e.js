@@ -1,0 +1,1 @@
+import{_ as t,o,l as s,m as a,x as _,s as r,v as c,j as p}from"./index.014e1043.js";const u=e=>(r("data-v-7f177772"),e=e(),c(),e),d=u(()=>p("iframe",{src:"https://router.vuejs.org/zh/guide"},null,-1)),n={__name:"RouterDocs",setup(e){return(i,f)=>(o(),s(_,null,{default:a(()=>[d]),_:1}))}};var h=t(n,[["__scopeId","data-v-7f177772"]]);export{h as default};

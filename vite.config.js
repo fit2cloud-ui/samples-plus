@@ -27,5 +27,8 @@ export default defineConfig(({command}) => {
         '@': path.resolve('./src')
       }
     },
+    build: {
+      outDir: 'demo',
+    }
   }
 })
