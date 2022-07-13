@@ -10,14 +10,14 @@ export function loadLanguages() {
       let name = key.replace(/(\.\/lang\/|\.js)/g, '');
       languages[name] = lang
   }
-  
+
   return languages
 }
 
 export const getLanguage = () => {
   const cookieLanguage = localStorage.getItem('language')
   if (cookieLanguage) {
-    return cookieLanguage
+    return cookieLanguage.toLowerCase()
   }
   const language = navigator.language.toLowerCase()
   const locales = Object.keys(loadLanguages())
