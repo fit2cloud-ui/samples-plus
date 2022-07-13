@@ -35,7 +35,7 @@ export default [
   // get user list
   {
     url: '/api/user-management/list',
-    type: 'get',
+    method: 'get',
     response: (config) => {
       let page = config.query.page
       let size = config.query.size

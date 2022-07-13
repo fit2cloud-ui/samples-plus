@@ -29,7 +29,7 @@ const users = {
 export default [
   {
     url: '/api/user/login',
-    type: 'post',
+    method: 'post',
     response: config => {
       const {username} = config.body
       const user = users[username];
@@ -45,7 +45,7 @@ export default [
 
   {
     url: '/api/user/is-login',
-    type: 'get',
+    method: 'get',
     response: () => {
       if (currentUser) {
         return success()
@@ -58,7 +58,7 @@ export default [
   // get user info
   {
     url: '/api/user/current',
-    type: 'get',
+    method: 'get',
     response: () => {
       const info = currentUser
 
@@ -74,7 +74,7 @@ export default [
   // update user info
   {
     url: '/api/user/info/update',
-    type: 'put',
+    method: 'put',
     response: config => {
       const {language} = config.body
       if (currentUser) {
@@ -87,7 +87,7 @@ export default [
   // user logout
   {
     url: '/api/user/logout',
-    type: 'post',
+    method: 'post',
     response: () => {
       currentUser = undefined;
       return success()

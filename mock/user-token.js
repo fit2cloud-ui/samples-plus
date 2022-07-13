@@ -42,7 +42,7 @@ export default [
   // user login
   {
     url: '/api/user-token/login',
-    type: 'post',
+    method: 'post',
     response: config => {
       const {username} = config.body
       const {token} = tokens[username];
@@ -58,7 +58,7 @@ export default [
   // get user info
   {
     url: '/api/user-token/info',
-    type: 'get',
+    method: 'get',
     response: (config) => {
       let token = config.headers[TOKEN_KEY]
       const info = users[token]
@@ -75,12 +75,12 @@ export default [
   // update user info
   {
     url: '/api/user/info/update',
-    type: 'put',
+    method: 'put',
     response: config => {
       let token = config.headers[TOKEN_KEY]
       const {language} = config.body
       users[token].language = language;
-      
+
       return success(users[token])
     }
   },
@@ -88,7 +88,7 @@ export default [
   // user logout
   {
     url: '/api/user/logout',
-    type: 'post',
+    method: 'post',
     response: () => {
       // do something
       return success()
