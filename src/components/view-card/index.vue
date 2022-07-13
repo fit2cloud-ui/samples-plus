@@ -17,7 +17,10 @@ import { provide } from 'vue'
 const prop = defineProps({
   icon: String,
   header: String,
-  type: String,
+  type: {
+    type: String,
+    default: "default"
+  },
   shadow: {
     type: String,
     default: "hover"
