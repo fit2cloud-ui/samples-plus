@@ -14,8 +14,8 @@ const instance = axios.create({
 // 每次请求加上Token。如果没用使用Token，删除这个拦截器
 instance.interceptors.request.use(
   config => {
-    const { user } = useStore();
-    if (user.token) {
+    const { userToken } = useStore();
+    if (userToken.token) {
       config.headers[TokenKey] = getToken()
     }
     return config

@@ -28,7 +28,7 @@ const useUserTokenStore = defineStore({
         })
       })
     },
-  
+
     isLogin() {
       return new Promise((resolve, reject) => {
         let token = getToken()
@@ -40,7 +40,7 @@ const useUserTokenStore = defineStore({
         }
       }).catch(() => {});
     },
-  
+
     getCurrentUser() {
       return new Promise((resolve, reject) => {
         getCurrentUser().then(({data}) => {
@@ -54,7 +54,7 @@ const useUserTokenStore = defineStore({
         })
       });
     },
-  
+
     setLanguage(language) {
       this.language = language
       setLanguage(language)
@@ -66,11 +66,11 @@ const useUserTokenStore = defineStore({
         })
       })
     },
-  
+
     userLogout() {
       return new Promise((resolve, reject) => {
         logout().then(() => {
-          this.login = false
+          this.token = ""
           this.roles = []
           resetRouter()
           resolve()

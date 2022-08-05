@@ -52,7 +52,7 @@ import { hasPermissions } from "@/utils/permisstion"
 const router = useRouter()
 
 const buttonClick = function (row) {
-  console.log(this.label + ": " + row.id)
+  console.log(row.label + ": " + row.id)
 }
 
 const columns = ref([])
