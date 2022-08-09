@@ -1,5 +1,5 @@
 import { nextTick } from 'vue';
-import { createI18n } from 'vue-i18n/index'
+import { createI18n } from 'vue-i18n'
 
 export function loadLanguages() {
   const context = import.meta.globEager("./lang/*.js");
