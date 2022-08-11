@@ -1,14 +1,14 @@
 <template>
   <div class="horizontal-header">
     <div class="header-left">
-      <sidebar-toggle-button/>
+      <sidebar-toggle-button />
     </div>
     <div class="header-right">
       <div class="navbar-item">
-        <language-switch/>
+        <language-switch />
       </div>
-      <div class="navbar-item">
-        <personal-setting/>
+      <div class="navbar-item" style="width: 160px">
+        <personal-setting />
       </div>
     </div>
   </div>
@@ -18,7 +18,6 @@
 import SidebarToggleButton from "@/components/layout/sidebar/SidebarToggleButton.vue";
 import LanguageSwitch from "@/business/app-layout/header-components/LanguageSwitch.vue";
 import PersonalSetting from "@/business/app-layout/header-components/PersonalSetting.vue";
-
 </script>
 
 <style lang="scss" scoped>
@@ -52,7 +51,7 @@ import PersonalSetting from "@/business/app-layout/header-components/PersonalSet
     height: 100%;
 
     .navbar-item {
-      color: #2E2E2E;
+      color: #2e2e2e;
     }
 
     .navbar-item + .navbar-item {
