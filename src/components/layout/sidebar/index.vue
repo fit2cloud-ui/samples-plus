@@ -42,7 +42,6 @@ const isCollapse = computed(() => {
 @use "@/styles/common/variables.scss" as *;
 
 @mixin sidebar-base-item {
-  padding-left: 20px !important;
   border-radius: 2px;
   color: $menu-color;
 }
@@ -179,6 +178,7 @@ const isCollapse = computed(() => {
 
       .el-menu-item {
         @include submenu-item;
+        padding-left: 53px !important;
 
         &:hover {
           background-color: $submenu-bg-color-hover;

@@ -10,8 +10,8 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.4",
     "axios": "^0.27.2",
-    "element-plus": "^2.2.5",
-    "fit2cloud-ui-plus": "0.0.1-beta.12",
+    "element-plus": "^2.2.13",
+    "fit2cloud-ui-plus": "^0.0.1-beta.12",
     "js-cookie": "^3.0.1",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
