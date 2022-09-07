@@ -1,10 +1,12 @@
 import {ElMessageBox, ElMessage} from 'element-plus';
 import i18n from "@/locales";
 
-export const $alert = (message, options) => {
+export const $alert = (message, callback, options) => {
   let title = i18n.global.t("commons.message_box.alert");
-  return ElMessageBox.alert(message, title, options)
-}
+  return ElMessageBox.alert(message, title, options).then(() => {
+    callback();
+  });
+};
 
 export const $confirm = (message, options = {}) => {
   let defaultOptions = {
