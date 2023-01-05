@@ -178,7 +178,7 @@ const isCollapse = computed(() => {
 
       .el-menu-item {
         @include submenu-item;
-        padding-left: 53px !important;
+        padding-left: 54px !important;
 
         &:hover {
           background-color: $submenu-bg-color-hover;
