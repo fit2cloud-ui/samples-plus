@@ -1,14 +1,14 @@
-import { nextTick } from 'vue';
-import { createI18n } from 'vue-i18n'
+import {nextTick} from 'vue';
+import {createI18n} from 'vue-i18n'
 
 export function loadLanguages() {
-  const context = import.meta.globEager("./lang/*.js");
+  const context = import.meta.globEager('./lang/*.js');
   const languages = {};
   let langs = Object.keys(context);
   for (let key of langs) {
-      let lang = context[key].default;
-      let name = key.replace(/(\.\/lang\/|\.js)/g, '');
-      languages[name] = lang
+    let lang = context[key].default;
+    let name = key.replace(/(\.\/lang\/|\.js)/g, '');
+    languages[name] = lang
   }
 
   return languages
@@ -33,6 +33,8 @@ export const getLanguage = () => {
 
 
 const i18n = createI18n({
+  legacy: false,
+  global: true,
   locale: getLanguage(),
   messages: loadLanguages()
 })
@@ -49,14 +51,14 @@ export async function loadLocaleMessages(locale) {
 
 export const setLanguage = lang => {
   if (i18n.global.locale !== lang) {
-    loadLocaleMessages(lang)
-    localStorage.setItem('language', lang)
-    if (i18n.mode === 'legacy') {
-      i18n.global.locale = lang
-    } else {
-      i18n.global.locale.value = lang
-    }
-
+    loadLocaleMessages(lang).then(r => {
+      localStorage.setItem('language', lang)
+      if (i18n.mode === 'legacy') {
+        i18n.global.locale = lang
+      } else {
+        i18n.global.locale.value = lang
+      }
+    })
   }
 }
 export default i18n

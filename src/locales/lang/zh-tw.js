@@ -1,4 +1,4 @@
-import elementZhTwLocale from 'element-plus/lib/locale/lang/zh-tw'
+import elementZhTwLocale from 'element-plus/dist/locale/zh-tw'
 import fit2cloudZhTwLocale from 'fit2cloud-ui-plus/src/locale/lang/zh-tw'
 const message = {
   commons: {
