@@ -1,31 +1,31 @@
 <template>
   <div class="sidebar">
-    <logo :collapse="isCollapse" />
+    <logo :collapse="isCollapse"/>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu :default-active="activeMenu" :collapse="isCollapse" :collapse-transition="false" :unique-opened="false"
-        mode="vertical">
-        <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
+               mode="vertical">
+        <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path"/>
       </el-menu>
     </el-scrollbar>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import {computed} from 'vue';
+import {useRoute} from 'vue-router';
 
-import SidebarItem from "./SidebarItem.vue"
-import logo from "@/components/layout/sidebar/SidebarLogo.vue";
+import SidebarItem from './SidebarItem.vue'
+import logo from '@/components/layout/sidebar/SidebarLogo.vue';
 import useStore from '@/store';
 
-const { permission, app } = useStore();
+const {permission, app} = useStore();
 
 const route = useRoute();
 const permission_routes = computed(() => permission.routes);
 const sidebar = computed(() => app.sidebar);
 
 const activeMenu = computed(() => {
-  const { meta, path } = route
+  const {meta, path} = route
   if (meta.activeMenu) {
     return meta.activeMenu
   }
@@ -42,26 +42,34 @@ const isCollapse = computed(() => {
 @use "@/styles/common/variables.scss" as *;
 
 @mixin sidebar-base-item {
-  border-radius: 2px;
-  color: $menu-color;
+  & {
+    border-radius: 2px;
+    color: $menu-color;
+  }
 }
 
 @mixin menu-item {
+  & {
+    line-height: $menu-height;
+    height: $menu-height;
+  }
   @include sidebar-base-item;
-  line-height: $menu-height;
-  height: $menu-height;
 }
 
 @mixin submenu-item {
+  & {
+    line-height: $submenu-height;
+    height: $submenu-height;
+  }
   @include sidebar-base-item;
-  line-height: $submenu-height;
-  height: $submenu-height;
 }
 
 @mixin popper-submenu-item {
+  & {
+    line-height: $submenu-height;
+    height: $submenu-height;
+  }
   @include sidebar-base-item;
-  line-height: $submenu-height;
-  height: $submenu-height;
 }
 
 @mixin menu-item-active {
@@ -177,8 +185,8 @@ const isCollapse = computed(() => {
       }
 
       .el-menu-item {
-        @include submenu-item;
         padding-left: 54px !important;
+        @include submenu-item;
 
         &:hover {
           background-color: $submenu-bg-color-hover;
@@ -205,7 +213,7 @@ const isCollapse = computed(() => {
       .sub-el-icon {
         margin-right: 10px;
 
-        +span {
+        + span {
           padding-left: 0;
         }
       }
@@ -248,7 +256,7 @@ const isCollapse = computed(() => {
     padding: 0;
   }
 
-  &>.el-menu {
+  & > .el-menu {
     display: block;
     background-color: $sidebar-bg-color;
 
@@ -258,7 +266,7 @@ const isCollapse = computed(() => {
     }
   }
 
-  .nest-menu .el-sub-menu>.el-sub-menu__title,
+  .nest-menu .el-sub-menu > .el-sub-menu__title,
   .el-menu-item {
     &.is-active {
       color: $submenu-active-color;
@@ -274,7 +282,7 @@ const isCollapse = computed(() => {
     .sub-el-icon {
       margin-right: 10px;
 
-      +span {
+      + span {
         padding-left: 0;
       }
     }
